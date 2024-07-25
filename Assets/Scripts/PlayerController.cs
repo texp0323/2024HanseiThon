@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]private int playerIndex;
 
+
     private float hp = 100;
-    int dir;
+    private float mp = 0;
 
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private SpriteRenderer arrowSpr;
 
     Animator anim;
     SpriteRenderer spr;
@@ -54,7 +56,10 @@ public class PlayerController : MonoBehaviour
         if (playerIndex == 1)
             transform.localScale = new Vector3(1, 1, 1);
         else
+        {
             transform.localScale = new Vector3(-1, 1, 1);
+            arrowSpr.flipX = true;
+        }
     }
 
     void Update()
@@ -64,10 +69,16 @@ public class PlayerController : MonoBehaviour
         PlayerJump();
         if (Input.GetKeyDown(attackKey))
             anim.SetTrigger("Attack");
-        if (Input.GetKeyDown(skillKey))
+        if (Input.GetKeyDown(skillKey) && mp >= 10)
+        {
             anim.SetTrigger("Skill");
-        if (Input.GetKeyDown(ultimateKey))
+            gainMp(-10);
+        }
+            if (Input.GetKeyDown(ultimateKey) && mp >= 50)
+        {
             anim.SetTrigger("Ultimate");
+            gainMp(-50);
+        }
     }
 
     void PlayerJump()
@@ -94,11 +105,13 @@ public class PlayerController : MonoBehaviour
         {
             moveInput = -1; // 왼쪽으로 이동
             transform.localScale = new Vector3(-1, 1, 1);
+            arrowSpr.flipX = true;
         }
         else if (Input.GetKey(moveRight))
         {
             moveInput = 1; // 오른쪽으로 이동
             transform.localScale = new Vector3(1, 1, 1);
+            arrowSpr.flipX = false;
         }
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
 
@@ -124,6 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         hp -= damage;
         rb.velocity = Vector2.zero;
+        gainMp(5);
         if(hp <= 0)
         {
             hp = 0;
@@ -131,11 +145,21 @@ public class PlayerController : MonoBehaviour
                 GameManager.Instance.Win("Player2");
             else
                 GameManager.Instance.Win("Player1");
+
+            rb.velocity = Vector2.up * 10;
+            anim.SetTrigger("Death");
         }
         GameManager.Instance.hpUpdate(playerIndex, hp);
         StopCoroutine("HitColor");
-        spr.color = Color.white;
         StartCoroutine("HitColor");
+    }
+
+    void gainMp(int value)
+    {
+        mp += value;
+        if (mp > 100)
+            mp = 100;
+        GameManager.Instance.mpUpdate(playerIndex, mp);
     }
 
     IEnumerator HitColor()
@@ -153,6 +177,7 @@ public class PlayerController : MonoBehaviour
             if (player.gameObject != gameObject) // 자기 자신을 제외
             {
                 player.gameObject.GetComponent<PlayerController>().TakeDamage(attackDamage);
+                gainMp(2);
             }
         }
     }
@@ -166,6 +191,7 @@ public class PlayerController : MonoBehaviour
             if (player.gameObject != gameObject) // 자기 자신을 제외
             {
                 player.gameObject.GetComponent<PlayerController>().TakeDamage(skillDamage);
+                gainMp(2);
             }
         }
     }
@@ -179,6 +205,7 @@ public class PlayerController : MonoBehaviour
             if (player.gameObject != gameObject) // 자기 자신을 제외
             {
                 player.gameObject.GetComponent<PlayerController>().TakeDamage(ultimateDamage);
+                gainMp(2);
             }
         }
     }

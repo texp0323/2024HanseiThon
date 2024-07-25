@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Image hpBar_P1;
     [SerializeField] Image hpBar_P2;
+    [SerializeField] Image mpBar_P1;
+    [SerializeField] Image mpBar_P2;
 
     bool isGaming = false;
 
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void Win(string winner)
     {
-        alertT.text = winner + " is Win!";
+        alertT.text = winner + " Win!";
         isGaming = false;
         StartCoroutine(GameEnd());
     }
@@ -57,6 +59,13 @@ public class GameManager : MonoBehaviour
             hpBar_P1.fillAmount = hp / 100;
         else
             hpBar_P2.fillAmount = hp / 100;
+    }
+    public void mpUpdate(int playerIndex, float mp)
+    {
+        if (playerIndex == 1)
+            mpBar_P1.fillAmount = mp / 100;
+        else
+            mpBar_P2.fillAmount = mp / 100;
     }
 
 }
