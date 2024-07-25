@@ -105,7 +105,7 @@ TextureImporter:
         width: 907
         height: 1067
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,6 +113,27 @@ TextureImporter:
       bones: []
       spriteID: 5c8298fba84c31c46add552d5bf97cfa
       internalID: -163754336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DinoImage_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1365
+        height: 1763
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04bb0a4d4720d449aba47a8285b6565
+      internalID: -590402394
       vertices: []
       indices: 
       edges: []
@@ -129,6 +150,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       DinoImage_0: -163754336
+      DinoImage_1: -590402394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

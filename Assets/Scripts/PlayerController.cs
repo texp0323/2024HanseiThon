@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]private int playerIndex;
 
+    [SerializeField] private GameObject hitEffect;
 
     private float hp = 100;
     private float mp = 0;
@@ -137,6 +138,7 @@ public class PlayerController : MonoBehaviour
     {
         hp -= damage;
         rb.velocity = Vector2.zero;
+        Instantiate(hitEffect, transform.position + Vector3.up, Quaternion.identity);
         gainMp(5);
         if(hp <= 0)
         {

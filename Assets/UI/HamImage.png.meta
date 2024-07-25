@@ -105,7 +105,7 @@ TextureImporter:
         width: 885
         height: 1067
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,6 +113,27 @@ TextureImporter:
       bones: []
       spriteID: b75d032478f6ab94cae161f5d5f7bf42
       internalID: -652622663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HamImage_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1365
+        height: 1763
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07374c04ea253a440b4f3c2f1788d68a
+      internalID: -1652431921
       vertices: []
       indices: 
       edges: []
@@ -129,6 +150,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       HamImage_0: -652622663
+      HamImage_1: -1652431921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
