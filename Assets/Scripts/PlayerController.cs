@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     SpriteRenderer spr;
 
-    [SerializeField] private KeyCode attackKey;
-    [SerializeField] private KeyCode skillKey;
-    [SerializeField] private KeyCode ultimateKey;
+    public KeyCode attackKey;
+    public KeyCode skillKey;
+    public KeyCode ultimateKey;
 
     [SerializeField] private Transform attackPos;
     [SerializeField] private float attackRadius;
@@ -42,9 +42,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask whatIsGround;
 
-    [SerializeField] private KeyCode moveLeft;
-    [SerializeField] private KeyCode moveRight;
-    [SerializeField] private KeyCode jumpKey;
+    public KeyCode moveLeft;
+    public KeyCode moveRight;
+    public KeyCode jumpKey;
     #endregion
 
     void Start()

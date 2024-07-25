@@ -34,5 +34,8 @@ public class CharacterSelect : MonoBehaviour
 
         p1SelectImage.sprite = SelectImages[p1SelectIndex];
         p2SelectImage.sprite = SelectImages[p2SelectIndex];
+
+        ValueManager.Instance.P1CharacterIndex = p1SelectIndex;
+        ValueManager.Instance.P2CharacterIndex = p2SelectIndex;
     }
 }
