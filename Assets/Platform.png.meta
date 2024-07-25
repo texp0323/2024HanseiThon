@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 893ec06f75672d0469cf5e03fac02460
+guid: cc6ef1f61d8a70c4daeb1e2493bb5004
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,91 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Dino-Skill_0
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 0
-        width: 116
-        height: 222
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f333409c53bba440b68f685a05f61e4
-      internalID: -1112959914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dino-Skill_1
-      rect:
-        serializedVersion: 2
-        x: 424
-        y: 0
-        width: 229
-        height: 222
-      alignment: 9
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 507c6fe9f4102094588e3f6fe379f9c6
-      internalID: -1503333463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dino-Skill_2
-      rect:
-        serializedVersion: 2
-        x: 780
-        y: 0
-        width: 262
-        height: 63
-      alignment: 9
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ec735e12b36be943b29b32be7650be1
-      internalID: -1064902739
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dino-Skill_3
-      rect:
-        serializedVersion: 2
-        x: 1173
-        y: 0
-        width: 209
-        height: 176
-      alignment: 9
-      pivot: {x: 0.8, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33105181c44e67c448e16e33b8e5574d
-      internalID: -1499598380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -190,11 +106,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Dino-Skill_0: -1112959914
-      Dino-Skill_1: -1503333463
-      Dino-Skill_2: -1064902739
-      Dino-Skill_3: -1499598380
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

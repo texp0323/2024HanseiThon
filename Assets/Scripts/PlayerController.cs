@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     SpriteRenderer spr;
 
+    [SerializeField] private KeyCode attackKey;
+    [SerializeField] private KeyCode skillKey;
+    [SerializeField] private KeyCode ultimateKey;
+
     //이동 관련 변수들
     #region move
     [SerializeField] private float moveSpeed = 10f; // 캐릭터 이동 속도
@@ -24,10 +28,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode moveRight;
     [SerializeField] private KeyCode jumpKey;
     [SerializeField] private KeyCode downKey;
-
-    [SerializeField] private KeyCode attackKey;
-    [SerializeField] private KeyCode skillKey;
-    [SerializeField] private KeyCode UltimateKey;
     #endregion
 
     void Start()
@@ -40,9 +40,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         PlayerJump();
-        Attack();
-        Skill();
-        Ultimate();
+        if (Input.GetKeyDown(attackKey))
+            anim.SetTrigger("Attack");
+        if (Input.GetKeyDown(skillKey))
+            anim.SetTrigger("Skill");
+        if (Input.GetKeyDown(ultimateKey))
+            anim.SetTrigger("Ultimate");
     }
 
     void PlayerJump()
@@ -109,17 +112,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Attack()
     {
-        anim.SetTrigger("Attack");
+        
     }
 
     void Skill()
     {
-        anim.SetTrigger("Skill");
+        Debug.Log("skill");
     }
 
     void Ultimate()
     {
-        anim.SetTrigger("Ultimate");
+        
     }
 
 }
