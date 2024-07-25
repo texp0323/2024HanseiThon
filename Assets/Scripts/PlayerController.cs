@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private int playerIndex;
 
     private float hp = 100;
-    private bool isDead = false;
     int dir;
 
     [SerializeField] private LayerMask playerLayer;
@@ -43,7 +42,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode moveLeft;
     [SerializeField] private KeyCode moveRight;
     [SerializeField] private KeyCode jumpKey;
-    [SerializeField] private KeyCode downKey;
     #endregion
 
     void Start()
@@ -52,11 +50,17 @@ public class PlayerController : MonoBehaviour
         TryGetComponent<Animator>(out anim);
         TryGetComponent<SpriteRenderer>(out spr);
         hp = 100;
-        isDead = false;
+
+        if (playerIndex == 1)
+            transform.localScale = new Vector3(1, 1, 1);
+        else
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 
     void Update()
     {
+        if (!GameManager.Instance.getIsGaming()) return;
+
         PlayerJump();
         if (Input.GetKeyDown(attackKey))
             anim.SetTrigger("Attack");
@@ -77,8 +81,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerMove();
         GroundCheck();
+        if (!GameManager.Instance.getIsGaming()) return;
+
+        PlayerMove();
     }
 
     void PlayerMove()
@@ -117,10 +123,14 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        rb.velocity = Vector2.zero;
         if(hp <= 0)
         {
             hp = 0;
-            isDead = true;
+            if (playerIndex == 1)
+                GameManager.Instance.Win("Player2");
+            else
+                GameManager.Instance.Win("Player1");
         }
         GameManager.Instance.hpUpdate(playerIndex, hp);
         StopCoroutine("HitColor");
@@ -131,7 +141,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator HitColor()
     {
         spr.color = Color.red;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.05f);
         spr.color = Color.white;
     }
     void Attack()
